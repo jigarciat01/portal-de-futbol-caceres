@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <title>Contacto - Portal de Fútbol Cáceres</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="estilosT2.css">
+</head>
+<body>
+
+  <header>
+    <div class="header-container">
+      <div class="logo">
+        <img src="https://cdn-icons-png.flaticon.com/512/53/53283.png" alt="Logo Fútbol" width="50">
+        <h1>Fútbol Cáceres</h1>
+      </div>
+      <nav>
+        <ul>
+          <li><a href="indexT2.html">Inicio</a></li>
+          <li><a href="equiposT2.html">Equipos y Tabla</a></li>
+          <li><a href="contactoT2.html" style="color: var(--color-acento);">Contacto</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
+
+  <main>
+    <section class="form-container">
+      <h2 style="text-align: center; color: var(--color-principal);">Inscríbete o Contáctanos</h2>
+      <p style="text-align: center; margin-bottom: 30px;">Rellena el formulario para recibir noticias o inscribirte en torneos.</p>
+      
+      <form action="#" method="post">
+        
+        <div class="form-group">
+          <label for="nombre">Nombre Completo:</label>
+          <input type="text" id="nombre" name="nombre" placeholder="Ej: Juan Pérez" required>
+        </div>
+
+        <div class="form-group">
+          <label for="email">Correo Electrónico:</label>
+          <input type="email" id="email" name="email" placeholder="usuario@email.com" required>
+        </div>
+
+        <div class="form-group">
+          <label for="tipo">Motivo de contacto:</label>
+          <select id="tipo" name="tipo">
+            <option value="info">Información General</option>
+            <option value="socio">Hacerme Socio</option>
+            <option value="queja">Sugerencia / Queja</option>
+          </select>
+        </div>
+
+        <div class="form-group">
+          <label for="mensaje">Mensaje:</label>
+          <textarea id="mensaje" name="mensaje" rows="5" placeholder="Escribe aquí tu consulta..."></textarea>
+        </div>
+
+        <div class="form-group">
+          <label>
+            <input type="checkbox" name="legal"> Acepto la política de privacidad
+          </label>
+        </div>
+
+        <div style="text-align: center;">
+          <button type="submit" class="btn">Enviar Formulario</button>
+          <button type="reset" class="btn btn-secundario" style="margin-left: 10px;">Borrar</button>
+        </div>
+
+      </form>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2025 Portal de Fútbol Cáceres. <a href="indexT2.html">Volver al Inicio</a></p>
+  </footer>
+
+</body>
+</html>
