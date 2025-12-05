@@ -1,7 +1,4 @@
-/* =========================================
-   REQUISITO 4: Propiedades del texto y fuentes
-   REQUISITO 3: Colores y fondos (Variables)
-   ========================================= */
+/* Variables globales para colores, sombras y temas */
 :root {
   --color-principal: #006633;
   --color-secundario: #004d1a;
@@ -12,29 +9,27 @@
   --sombra-fuerte: 0 10px 20px rgba(0,0,0,0.2);
 }
 
+/* Estilos base del documento: tipografía, fondo y espaciado */
 body {
-  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; /* Fuente sans-serif moderna */
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
   background-color: var(--color-fondo);
   color: var(--color-texto);
   line-height: 1.6;
 }
 
-/* =========================================
-   REQUISITO 1: Maquetación (Flexbox)
-   REQUISITO 11: Gradientes
-   ========================================= */
+/* Cabecera: fondo degradado, sombra y comportamiento sticky */
 header {
   background: linear-gradient(135deg, var(--color-secundario) 0%, var(--color-principal) 100%);
   color: #fff;
   padding: 15px 0;
   box-shadow: var(--sombra-suave);
-  /* REQUISITO 8: Posición sticky para que el menú se quede fijo al bajar */
   position: sticky;
   top: 0;
   z-index: 1000;
 }
 
+/* Contenedor interno de la cabecera para alineación y separación */
 .header-container {
   display: flex;
   flex-wrap: wrap;
@@ -45,34 +40,33 @@ header {
   padding: 0 20px;
 }
 
+/* Logo: alineación y separación entre imagen y texto */
 .logo {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
+/* Imagen del logo: aspecto redondeado y borde de acento */
 .logo img {
   border-radius: 50%;
   border: 3px solid var(--color-acento);
-  /* REQUISITO 11: Transiciones */
   transition: transform 0.3s ease;
 }
 
+/* Efecto al pasar el ratón sobre la imagen del logo */
 .logo img:hover {
-  transform: rotate(360deg); /* Efecto visual al pasar el ratón */
+  transform: rotate(360deg);
 }
 
+/* Título del logo con sombra para visibilidad */
 .logo h1 {
-  /* REQUISITO 11: Text-shadow */
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   margin: 0;
   font-size: 1.5rem;
 }
 
-/* =========================================
-   REQUISITO 9: Menús
-   REQUISITO 6: Pseudoclases y Pseudoelementos
-   ========================================= */
+/* Navegación principal: lista horizontal */
 nav ul {
   list-style: none;
   display: flex;
@@ -85,6 +79,7 @@ nav ul li {
   position: relative;
 }
 
+/* Estilos de enlaces de navegación y efecto subrayado animado */
 nav ul li a {
   color: #fff;
   text-decoration: none;
@@ -94,7 +89,6 @@ nav ul li a {
   transition: color 0.3s;
 }
 
-/* Efecto de subrayado animado (Pseudoelemento ::after) */
 nav ul li a::after {
   content: '';
   position: absolute;
@@ -114,20 +108,15 @@ nav ul li a:hover {
   color: var(--color-acento);
 }
 
-/* =========================================
-   REQUISITO 7: Márgenes, relleno y bordes (Modelo de cajas)
-   ========================================= */
+/* Contenido principal: márgenes y ancho máximo */
 main {
   padding: 40px 20px;
   max-width: 1200px;
   margin: 20px auto;
-  min-height: 60vh; /* Para que el footer no suba si hay poco contenido */
+  min-height: 60vh; 
 }
 
-/* =========================================
-   REQUISITO 5: Propiedades de las listas e imágenes
-   REQUISITO 11: Overflow y Sombras
-   ========================================= */
+/* Grid para tarjetas / recursos: adaptable y centrado */
 .grid-recursos {
   display: flex;
   flex-wrap: wrap;
@@ -137,39 +126,43 @@ main {
   justify-content: center;
 }
 
+/* Tarjeta genérica: fondo blanco, borde redondeado y sombra */
 .card {
   background: #fff;
   border-radius: 12px;
   box-shadow: var(--sombra-suave);
   width: 300px;
-  overflow: hidden; /* Para que la imagen no se salga al hacer zoom */
+  overflow: hidden; 
   transition: transform 0.3s, box-shadow 0.3s;
-  /* REQUISITO 8: Posición relativa para colocar elementos absolutos dentro */
   position: relative; 
 }
 
+/* Elevación y desplazamiento al pasar el ratón */
 .card:hover {
   transform: translateY(-10px);
   box-shadow: var(--sombra-fuerte);
 }
 
+/* Imagen dentro de la tarjeta: tamaño fijo y recorte por cover */
 .card img {
   width: 100%;
   height: 200px;
-  object-fit: cover; /* Ajuste perfecto de imagen */
+  object-fit: cover; 
   transition: transform 0.5s;
 }
 
+/* Zoom sutil de la imagen al hover */
 .card:hover img {
-  transform: scale(1.1); /* Efecto zoom */
+  transform: scale(1.1); 
 }
 
+/* Contenido interno de la tarjeta */
 .card-content {
   padding: 20px;
   text-align: center;
 }
 
-/* Etiqueta "Nuevo" usando posición absoluta */
+/* Badge de "nuevo": posición absoluta para superponer la tarjeta */
 .badge-nuevo {
   position: absolute;
   top: 10px;
@@ -183,12 +176,10 @@ main {
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
 }
 
-/* =========================================
-   REQUISITO 5: Tablas
-   ========================================= */
+/* Tabla de equipos: diseño limpio y legible */
 table.tabla-equipos {
   width: 100%;
-  border-collapse: collapse; /* Bordes colapsados */
+  border-collapse: collapse;
   margin: 20px 0;
   background-color: #fff;
   box-shadow: var(--sombra-suave);
@@ -200,25 +191,23 @@ table.tabla-equipos th, table.tabla-equipos td {
   border-bottom: 1px solid #ddd;
 }
 
+/* Encabezados de tabla con color principal */
 table.tabla-equipos th {
   background-color: var(--color-principal);
   color: white;
   text-transform: uppercase;
 }
 
-/* Pseudoclase :nth-child para filas alternas (zebra striping) */
+/* Alternancia de filas para mejor lectura y efecto hover */
 table.tabla-equipos tr:nth-child(even) {
   background-color: #f2f2f2;
 }
 
 table.tabla-equipos tr:hover {
-  background-color: #e6ffe6; /* Hover en filas */
+  background-color: #e6ffe6; 
 }
 
-/* =========================================
-   REQUISITO 9: Formularios
-   REQUISITO 10: Cursores y Botones
-   ========================================= */
+/* Contenedor de formularios con fondo y sombra */
 .form-container {
   background: #fff;
   padding: 30px;
@@ -232,13 +221,14 @@ table.tabla-equipos tr:hover {
   margin-bottom: 15px;
 }
 
+/* Etiquetas: bloque y negrita */
 label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-/* Selector de atributo */
+/* Inputs y textarea: estilo coherente y accesible */
 input[type="text"],
 input[type="email"],
 textarea,
@@ -247,37 +237,41 @@ select {
   padding: 10px;
   border: 2px solid #ddd;
   border-radius: 5px;
-  box-sizing: border-box; /* Importante para el padding */
+  box-sizing: border-box; 
   font-family: inherit;
   transition: border-color 0.3s;
 }
 
+/* Foco: indicar foco con color principal */
 input:focus, textarea:focus {
   border-color: var(--color-principal);
   outline: none;
 }
 
+/* Botón principal: forma redondeada y estilo de acción */
 .btn {
   background-color: var(--color-principal);
   color: white;
   border: none;
   padding: 12px 24px;
   border-radius: 30px;
-  cursor: pointer; /* REQUISITO 10: Cursor pointer */
+  cursor: pointer; 
   font-size: 1rem;
   font-weight: bold;
   transition: background 0.3s, transform 0.1s;
   display: inline-block;
 }
 
+/* Hover y active para botones */
 .btn:hover {
   background-color: var(--color-secundario);
 }
 
 .btn:active {
-  transform: scale(0.98); /* Efecto de clic */
+  transform: scale(0.98); 
 }
 
+/* Botón secundario con color de acento */
 .btn-secundario {
   background-color: var(--color-acento);
   color: #333;
@@ -287,9 +281,7 @@ input:focus, textarea:focus {
   background-color: #e6b800;
 }
 
-/* =========================================
-   Footer
-   ========================================= */
+/* Pie de página: fondo oscuro y borde de acento */
 footer {
   background-color: #222;
   color: #fff;
@@ -304,9 +296,7 @@ footer a {
   text-decoration: none;
 }
 
-/* =========================================
-   Media Queries (Responsive)
-   ========================================= */
+/* Responsive: ajustes para pantallas estrechas */
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
@@ -319,6 +309,6 @@ footer a {
   }
   
   .card {
-    width: 100%; /* Tarjetas al 100% en móvil */
+    width: 100%; 
   }
 }
