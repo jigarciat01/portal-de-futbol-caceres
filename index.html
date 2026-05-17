@@ -4,6 +4,9 @@
   <meta charset="UTF-8">
   <title>Inicio - Portal de Fútbol Cáceres</title>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="icon" type="image/png" href="multimedia/balon.png">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
   <link rel="stylesheet" href="estilosT2.css">
 </head>
 <body>
@@ -11,12 +14,12 @@
   <header>
     <div class="header-container">
       <div class="logo">
-        <img src="imagenes/balon.png" alt="Logo Fútbol" width="50">
+        <img src="multimedia/balon.png" alt="Logo Fútbol" width="50">
         <h1>Fútbol Cáceres</h1>
       </div>
       <nav>
         <ul>
-          <li><a href="index.html">Inicio</a></li>
+          <li><a href="index.html" style="color: var(--color-acento);">Inicio</a></li>
           <li><a href="equiposT2.html">Equipos y Tabla</a></li>
           <li><a href="contactoT2.html">Contacto</a></li>
         </ul>
@@ -25,64 +28,304 @@
   </header>
 
   <main>
-    <section id="bienvenida" style="text-align: center; margin-bottom: 40px;">
+
+    <!-- BOOTSTRAP 1: Alert dismissible de bienvenida -->
+    <div class="alert alert-success alert-dismissible fade show" role="alert"
+         style="max-width:1200px; margin:0 auto 20px auto;">
+      <strong>¡Temporada 2025 en marcha!</strong> Sigue los últimos resultados, estadísticas y noticias del fútbol cacereño.
+      <button type="button" class="btn-close" data-bs-dismiss="alert" aria-label="Cerrar"></button>
+    </div>
+
+    <!-- BOOTSTRAP 2: Carrusel de imágenes destacadas -->
+    <div id="carouselDestacados" class="carousel slide" data-bs-ride="carousel"
+         style="max-width:1200px; margin:0 auto 40px auto; border-radius:12px; overflow:hidden; box-shadow:var(--sombra-fuerte);">
+      <div class="carousel-indicators">
+        <button type="button" data-bs-target="#carouselDestacados" data-bs-slide-to="0"
+                class="active" aria-current="true" aria-label="Estadio"></button>
+        <button type="button" data-bs-target="#carouselDestacados" data-bs-slide-to="1"
+                aria-label="Escudo"></button>
+        <button type="button" data-bs-target="#carouselDestacados" data-bs-slide-to="2"
+                aria-label="Cantera"></button>
+      </div>
+      <div class="carousel-inner">
+        <div class="carousel-item active">
+          <img src="multimedia/estadio.jpg" class="d-block w-100" alt="Estadio Príncipe Felipe"
+               style="height:380px; object-fit:cover;">
+          <div class="carousel-caption"
+               style="background:rgba(0,0,0,0.55); border-radius:8px; padding:10px 20px; bottom:20px;">
+            <h5>Estadio Príncipe Felipe</h5>
+            <p>El corazón del fútbol en Cáceres.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="multimedia/escudo.png" class="d-block w-100" alt="C.P. Cacereño"
+               style="height:380px; object-fit:contain; background:var(--color-secundario);">
+          <div class="carousel-caption"
+               style="background:rgba(0,0,0,0.55); border-radius:8px; padding:10px 20px; bottom:20px;">
+            <h5>C.P. Cacereño</h5>
+            <p>Orgullo y pasión extremeña.</p>
+          </div>
+        </div>
+        <div class="carousel-item">
+          <img src="multimedia/cantera.jpg" class="d-block w-100" alt="Cantera Local"
+               style="height:380px; object-fit:cover;">
+          <div class="carousel-caption"
+               style="background:rgba(0,0,0,0.55); border-radius:8px; padding:10px 20px; bottom:20px;">
+            <h5>Cantera Local</h5>
+            <p>El futuro del fútbol cacereño.</p>
+          </div>
+        </div>
+      </div>
+      <button class="carousel-control-prev" type="button"
+              data-bs-target="#carouselDestacados" data-bs-slide="prev">
+        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Anterior</span>
+      </button>
+      <button class="carousel-control-next" type="button"
+              data-bs-target="#carouselDestacados" data-bs-slide="next">
+        <span class="carousel-control-next-icon" aria-hidden="true"></span>
+        <span class="visually-hidden">Siguiente</span>
+      </button>
+    </div>
+
+    <!-- Bienvenida con barra de búsqueda -->
+    <section id="bienvenida" style="text-align:center; margin-bottom:50px;">
       <h2>Bienvenidos al Portal Oficial</h2>
       <p>Toda la información del deporte rey en nuestra ciudad. Noticias, estadísticas y comunidad.</p>
-      <div style="margin-top: 20px;">
-        <input type="text" placeholder="Buscar jugador..." style="width: 250px; display: inline-block;">
-        <button class="btn">Buscar</button>
+
+      <!-- BOOTSTRAP 3: Tooltip en el botón de búsqueda + input-group de Bootstrap -->
+      <div class="input-group" style="max-width:420px; margin:20px auto 0;">
+        <input type="text" class="form-control" placeholder="Buscar jugador, equipo o partido...">
+        <button class="btn" type="button"
+                data-bs-toggle="tooltip"
+                data-bs-placement="top"
+                title="Busca jugadores, equipos y partidos de la liga local">
+          Buscar
+        </button>
       </div>
     </section>
 
-    <section id="recursos">
-      <h2 style="border-left: 5px solid var(--color-acento); padding-left: 10px;">Destacados de la Semana</h2>
-      
-        <ul class="grid-recursos">
-  <li class="card">
-    <div class="badge-nuevo">Nuevo</div>
-    <img src="imagenes/escudo.png" alt="Equipo celebrando victoria">
-    <div class="card-content">
-      <h3>C.P. Cacereño</h3>
-      <p>Análisis del último partido y las claves del ascenso.</p>
-      <button class="btn btn-secundario">Leer más</button>
-    </div>
-  </li>
+    <!-- Destacados de la Semana -->
+    <section id="recursos" style="margin-bottom:50px;">
+      <h2 style="border-left:5px solid var(--color-acento); padding-left:10px;">Destacados de la Semana</h2>
 
-  <li class="card">
-    <img src="imagenes/estadio.jpg" alt="Estadio de fútbol verde">
-    <div class="card-content">
-      <h3>Estadio Príncipe Felipe</h3>
-      <p>Conoce las instalaciones y compra tus entradas.</p>
-      <button class="btn btn-secundario">Visitar</button>
-    </div>
-  </li>
+      <ul class="grid-recursos">
+        <li class="card">
+          <div class="badge-nuevo">Nuevo</div>
+          <img src="multimedia/escudo.png" alt="Escudo del C.P. Cacereño" class="miniatura">
+          <div class="card-content">
+            <h3>C.P. Cacereño</h3>
+            <p>Análisis del último partido y las claves del ascenso.</p>
+            <!-- BOOTSTRAP 4: Botón que abre Modal -->
+            <button class="btn btn-secundario" data-bs-toggle="modal" data-bs-target="#modalCacereno">
+              Leer más
+            </button>
+          </div>
+        </li>
 
-  <li class="card">
-    <img src="imagenes/cantera.jpg" alt="Jugador corriendo con el balón">
-    <div class="card-content">
-      <h3>Cantera Local</h3>
-      <p>Los jóvenes talentos que están destacando esta temporada.</p>
-      <button class="btn btn-secundario">Ver perfiles</button>
-    </div>
-  </li>
-</ul>
+        <li class="card">
+          <img src="multimedia/estadio.jpg" alt="Vista de la grada del Estadio Príncipe Felipe" class="miniatura">
+          <div class="card-content">
+            <h3>Estadio Príncipe Felipe</h3>
+            <p>Conoce las instalaciones y compra tus entradas.</p>
+            <button class="btn btn-secundario" data-bs-toggle="modal" data-bs-target="#modalEstadio">
+              Visitar
+            </button>
+          </div>
+        </li>
+
+        <li class="card">
+          <img src="multimedia/cantera.jpg" alt="Jóvenes jugadores disputando un balón" class="miniatura">
+          <div class="card-content">
+            <h3>Cantera Local</h3>
+            <p>Los jóvenes talentos que están destacando esta temporada.</p>
+            <button class="btn btn-secundario" data-bs-toggle="modal" data-bs-target="#modalCantera">
+              Ver perfiles
+            </button>
+          </div>
+        </li>
+      </ul>
     </section>
+
+    <!-- Sección Multimedia: Audio + Vídeo en rejilla Bootstrap -->
+    <section id="multimedia" style="margin-bottom:40px;">
+      <h2 style="border-left:5px solid var(--color-acento); padding-left:10px; margin-bottom:25px;">
+        Contenido Multimedia
+      </h2>
+
+      <div class="row g-4">
+
+        <!-- Audio -->
+        <div class="col-lg-5">
+          <div class="media-card">
+            <h3>🎧 Audioguía</h3>
+            <p class="media-subtitle">Conoce el C.D. Cacereño</p>
+            <p class="media-desc">
+              Escucha un resumen sobre la historia, palmarés y actualidad del Club Deportivo Cacereño.
+            </p>
+            <audio controls class="reproductor">
+              <source src="multimedia/audioguia.m4a" type="audio/mp4">
+              Tu navegador no soporta la reproducción de audio.
+            </audio>
+          </div>
+        </div>
+
+        <!-- Vídeo -->
+        <div class="col-lg-7">
+          <div class="media-card">
+            <h3>🎥 Guía del Portal</h3>
+            <p class="media-subtitle">¿Cómo funciona esta web?</p>
+            <p class="media-desc">
+              Descubre todas las secciones y funcionalidades del portal en este vídeo explicativo.
+            </p>
+            <video controls class="reproductor-video" aria-describedby="desc-video">
+              <source src="multimedia/video.mp4" type="video/mp4">
+              Tu navegador no soporta la reproducción de vídeo.
+            </video>
+            <div class="transcripcion" id="desc-video">
+              <details>
+                <summary><strong>Transcripción del vídeo (alternativa textual para accesibilidad)</strong></summary>
+                <p><em>Narración en off sobre grabación de pantalla del portal. Duración aproximada: 2 min 21 s.</em></p>
+
+                <p><strong>[0:00 – 0:40] Escena 1 — Página de Inicio</strong></p>
+                <p>Bienvenido al Portal de Fútbol Cáceres. Vamos a explicarte cómo funciona esta web para que puedas sacarle el máximo partido.</p>
+                <p>Nada más entrar, verás un aviso con las novedades de la temporada. Puedes cerrarlo haciendo clic en la X.</p>
+                <p>Debajo encontrarás un carrusel de imágenes que muestra el estadio, el escudo del club y la cantera. Puedes navegar entre ellas con las flechas laterales o los puntos indicadores.</p>
+                <p>En la sección de bienvenida tienes una barra de búsqueda para localizar jugadores, equipos o partidos de la liga local.</p>
+
+                <p><strong>[0:40 – 1:20] Escena 2 — Destacados y Modales</strong></p>
+                <p>Más abajo están las tarjetas de "Destacados de la Semana". Cada tarjeta tiene un botón que abre una ventana emergente con información detallada: la crónica del último partido del Cacereño, los datos del estadio, o los perfiles de la cantera. Ciérralas cuando quieras con el botón Cerrar.</p>
+
+                <p><strong>[1:20 – 2:00] Escena 3 — Página de Equipos</strong></p>
+                <p>En el menú superior, haz clic en "Equipos y Tabla" para acceder a la liga.</p>
+                <p>Aquí encontrarás dos pestañas. La primera, Clasificación, muestra la tabla con las posiciones, partidos jugados y puntos de cada equipo. La segunda, Estadísticas, presenta el rendimiento de cada equipo mediante barras de progreso animadas.</p>
+                <p>Debajo de la tabla están las Reglas del Torneo organizadas en un acordeón. Haz clic en cada sección para desplegarla y leer las normas de la fase regular, la fase de ascenso y las sanciones disciplinarias.</p>
+
+                <p><strong>[2:00 – 2:21] Escena 4 — Página de Contacto</strong></p>
+                <p>Por último, accede a "Contacto" desde el menú.</p>
+                <p>Aquí puedes rellenar el formulario para pedir información, hacerte socio, inscribir a un jugador en la cantera o enviar una sugerencia. Rellena tu nombre, correo, el motivo de contacto y tu mensaje.</p>
+                <p>Si quieres consultar la política de privacidad antes de enviar, pulsa el botón correspondiente para desplegarla.</p>
+                <p>Marca la casilla de aceptación y haz clic en Enviar. Verás un indicador de carga y, al finalizar, una notificación de confirmación en la esquina inferior derecha.</p>
+                <p>Esperamos que este portal sea tu punto de referencia para todo lo relacionado con el fútbol en Cáceres. ¡Hasta pronto!</p>
+              </details>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
   </main>
 
-<footer>
-  <p>&copy; 2025 Portal de Fútbol Cáceres. <a href="contactoT2.html">Contáctanos</a></p>
-  <p>
-    <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
-      <img alt="Licencia Creative Commons" style="border-width:0" src="https://i.creativecommons.org/l/by-nc-sa/4.0/88x31.png" />
-    </a><br />
-    Esta obra está bajo una <a rel="license" href="http://creativecommons.org/licenses/by-nc-sa/4.0/">Licencia CC Reconocimiento-NoComercial-CompartirIgual 4.0 Internacional</a>.
-  </p>
-  <address>Av. del Deporte s/n, Cáceres</address>
-</footer>
+  <!-- ===== BOOTSTRAP 4: MODALES ===== -->
 
+  <div class="modal fade" id="modalCacereno" tabindex="-1"
+       aria-labelledby="labelCacereno" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background:var(--color-principal); color:#fff;">
+          <h5 class="modal-title" id="labelCacereno">C.P. Cacereño — Crónica del partido</h5>
+          <button type="button" class="btn-close btn-close-white"
+                  data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <img src="multimedia/escudo.png" alt="Escudo"
+               style="width:70px; float:right; margin-left:15px;">
+          <p>El C.P. Cacereño firmó una actuación sobresaliente, con dominio del mediocampo y contragolpes letales.</p>
+          <p><strong>Resultado:</strong> Cacereño B 3 – 0 Trujillo</p>
+          <p><strong>Goleadores:</strong> Romero (15'), López (42'), García (78')</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secundario"
+                  data-bs-dismiss="modal">Cerrar</button>
+          <a href="equiposT2.html" class="btn">Ver clasificación</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <div class="modal fade" id="modalEstadio" tabindex="-1"
+       aria-labelledby="labelEstadio" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background:var(--color-principal); color:#fff;">
+          <h5 class="modal-title" id="labelEstadio">Estadio Príncipe Felipe</h5>
+          <button type="button" class="btn-close btn-close-white"
+                  data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <img src="multimedia/estadio.jpg" alt="Estadio"
+               style="width:100%; border-radius:8px; margin-bottom:15px;">
+          <p>Capacidad para <strong>12.000 espectadores</strong>. Hierba natural y marcador electrónico.</p>
+          <p><strong>Dirección:</strong> Av. del Deporte s/n, Cáceres</p>
+          <p><strong>Entradas desde:</strong> 5 €</p>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secundario"
+                  data-bs-dismiss="modal">Cerrar</button>
+          <a href="contactoT2.html" class="btn">Comprar entradas</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
-  
+  <div class="modal fade" id="modalCantera" tabindex="-1"
+       aria-labelledby="labelCantera" aria-hidden="true">
+    <div class="modal-dialog modal-dialog-centered">
+      <div class="modal-content">
+        <div class="modal-header" style="background:var(--color-principal); color:#fff;">
+          <h5 class="modal-title" id="labelCantera">Cantera Local — Talentos 2025</h5>
+          <button type="button" class="btn-close btn-close-white"
+                  data-bs-dismiss="modal" aria-label="Cerrar"></button>
+        </div>
+        <div class="modal-body">
+          <img src="multimedia/cantera.jpg" alt="Cantera"
+               style="width:100%; border-radius:8px; margin-bottom:15px;">
+          <p>Más de <strong>150 jóvenes promesas</strong> entre 8 y 18 años forman nuestra cantera.</p>
+          <ul>
+            <li><strong>Carlos M.</strong> — Delantero, 16 años. 12 goles esta temporada.</li>
+            <li><strong>Pablo R.</strong> — Centrocampista, 17 años. 8 asistencias.</li>
+            <li><strong>Ana S.</strong> — Portera, 15 años. Selección extremeña sub-16.</li>
+          </ul>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secundario"
+                  data-bs-dismiss="modal">Cerrar</button>
+          <a href="contactoT2.html" class="btn">Inscribir jugador</a>
+        </div>
+      </div>
+    </div>
+  </div>
 
+  <footer>
+    <div class="footer-content">
+      <p>&copy; 2025 Portal de Fútbol Cáceres.</p>
+
+      <div class="licencia-cc">
+        <p class="titulo-licencia">LICENCIA DE USO</p>
+        <p>Diseñada por <strong>Jigarciat01</strong></p>
+        <div class="iconos-cc">
+          <span>(CC)</span> <span>BY</span> <span>NC</span> <span>SA</span>
+        </div>
+        <p class="texto-legal">
+          Esta obra está bajo una licencia
+          <a href="http://creativecommons.org/licenses/by-nc-sa/4.0/">
+            Creative Commons Reconocimiento-NoComercial-CompartirIgual 4.0
+          </a>.
+        </p>
+      </div>
+
+      <address>Av. del Deporte s/n, Cáceres</address>
+      <p><a href="contactoT2.html">Contáctanos</a></p>
+    </div>
+  </footer>
+
+  <!-- Bootstrap JS -->
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.querySelectorAll('[data-bs-toggle="tooltip"]').forEach(function(el) {
+      new bootstrap.Tooltip(el);
+    });
+  </script>
 </body>
 </html>

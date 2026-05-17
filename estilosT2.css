@@ -9,7 +9,7 @@
   --sombra-fuerte: 0 10px 20px rgba(0,0,0,0.2);
 }
 
-/* Estilos base del documento: tipografía, fondo y espaciado */
+/* Estilos base del documento */
 body {
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   margin: 0;
@@ -18,7 +18,14 @@ body {
   line-height: 1.6;
 }
 
-/* Cabecera: fondo degradado, sombra y comportamiento sticky */
+/* IMÁGENES RESPONSIVE (REQUISITO) */
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+/* Cabecera */
 header {
   background: linear-gradient(135deg, var(--color-secundario) 0%, var(--color-principal) 100%);
   color: #fff;
@@ -29,7 +36,6 @@ header {
   z-index: 1000;
 }
 
-/* Contenedor interno de la cabecera para alineación y separación */
 .header-container {
   display: flex;
   flex-wrap: wrap;
@@ -40,33 +46,30 @@ header {
   padding: 0 20px;
 }
 
-/* Logo: alineación y separación entre imagen y texto */
+/* Logo */
 .logo {
   display: flex;
   align-items: center;
   gap: 15px;
 }
 
-/* Imagen del logo: aspecto redondeado y borde de acento */
 .logo img {
   border-radius: 50%;
   border: 3px solid var(--color-acento);
   transition: transform 0.3s ease;
 }
 
-/* Efecto al pasar el ratón sobre la imagen del logo */
 .logo img:hover {
   transform: rotate(360deg);
 }
 
-/* Título del logo con sombra para visibilidad */
 .logo h1 {
   text-shadow: 2px 2px 4px rgba(0,0,0,0.5);
   margin: 0;
   font-size: 1.5rem;
 }
 
-/* Navegación principal: lista horizontal */
+/* Navegación */
 nav ul {
   list-style: none;
   display: flex;
@@ -79,7 +82,6 @@ nav ul li {
   position: relative;
 }
 
-/* Estilos de enlaces de navegación y efecto subrayado animado */
 nav ul li a {
   color: #fff;
   text-decoration: none;
@@ -108,7 +110,7 @@ nav ul li a:hover {
   color: var(--color-acento);
 }
 
-/* Contenido principal: márgenes y ancho máximo */
+/* Contenido principal */
 main {
   padding: 40px 20px;
   max-width: 1200px;
@@ -116,7 +118,7 @@ main {
   min-height: 60vh; 
 }
 
-/* Grid para tarjetas / recursos: adaptable y centrado */
+/* Grid para tarjetas / recursos */
 .grid-recursos {
   display: flex;
   flex-wrap: wrap;
@@ -126,7 +128,6 @@ main {
   justify-content: center;
 }
 
-/* Tarjeta genérica: fondo blanco, borde redondeado y sombra */
 .card {
   background: #fff;
   border-radius: 12px;
@@ -137,32 +138,28 @@ main {
   position: relative; 
 }
 
-/* Elevación y desplazamiento al pasar el ratón */
 .card:hover {
   transform: translateY(-10px);
   box-shadow: var(--sombra-fuerte);
 }
 
-/* Imagen dentro de la tarjeta: tamaño fijo y recorte por cover */
-.card img {
+/* MINIATURAS (REQUISITO: Imágenes uniformes y carga optimizada visualmente) */
+.card img, .miniatura {
   width: 100%;
-  height: 200px;
-  object-fit: cover; 
+  height: 200px; /* Altura fija para la miniatura */
+  object-fit: cover; /* Recorte inteligente */
   transition: transform 0.5s;
 }
 
-/* Zoom sutil de la imagen al hover */
 .card:hover img {
   transform: scale(1.1); 
 }
 
-/* Contenido interno de la tarjeta */
 .card-content {
   padding: 20px;
   text-align: center;
 }
 
-/* Badge de "nuevo": posición absoluta para superponer la tarjeta */
 .badge-nuevo {
   position: absolute;
   top: 10px;
@@ -174,9 +171,70 @@ main {
   font-size: 0.8rem;
   font-weight: bold;
   box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+  z-index: 10;
 }
 
-/* Tabla de equipos: diseño limpio y legible */
+/* ESTILOS MULTIMEDIA (Audio y Video) */
+
+/* Tarjeta de bloque multimedia (audio o vídeo) */
+.media-card {
+  background: #fff;
+  padding: 25px;
+  border-radius: 12px;
+  box-shadow: var(--sombra-suave);
+  height: 100%;
+  text-align: center;
+}
+
+.media-card h3 {
+  color: var(--color-principal);
+  margin-bottom: 8px;
+  font-size: 1.2rem;
+}
+
+.media-subtitle {
+  font-weight: bold;
+  color: var(--color-secundario);
+  margin-bottom: 10px;
+}
+
+.media-desc {
+  font-size: 0.9rem;
+  color: #555;
+  margin-bottom: 15px;
+}
+
+/* Reproductor de audio */
+.reproductor {
+  width: 100%;
+  max-width: 400px;
+  margin: 0 auto;
+  display: block;
+  border-radius: 8px;
+  box-shadow: var(--sombra-suave);
+}
+
+/* Reproductor de vídeo: ocupa el ancho de su columna */
+.reproductor-video {
+  width: 100%;
+  max-width: 100%;
+  display: block;
+  border-radius: 8px;
+  box-shadow: var(--sombra-suave);
+  margin-bottom: 10px;
+}
+
+.transcripcion {
+  max-width: 100%;
+  margin: 10px 0 0;
+  text-align: left;
+  background-color: #e9e9e9;
+  padding: 10px 15px;
+  border-radius: 5px;
+  font-size: 0.9rem;
+}
+
+/* Tabla de equipos */
 table.tabla-equipos {
   width: 100%;
   border-collapse: collapse;
@@ -191,14 +249,12 @@ table.tabla-equipos th, table.tabla-equipos td {
   border-bottom: 1px solid #ddd;
 }
 
-/* Encabezados de tabla con color principal */
 table.tabla-equipos th {
   background-color: var(--color-principal);
   color: white;
   text-transform: uppercase;
 }
 
-/* Alternancia de filas para mejor lectura y efecto hover */
 table.tabla-equipos tr:nth-child(even) {
   background-color: #f2f2f2;
 }
@@ -207,7 +263,7 @@ table.tabla-equipos tr:hover {
   background-color: #e6ffe6; 
 }
 
-/* Contenedor de formularios con fondo y sombra */
+/* Formularios */
 .form-container {
   background: #fff;
   padding: 30px;
@@ -221,14 +277,12 @@ table.tabla-equipos tr:hover {
   margin-bottom: 15px;
 }
 
-/* Etiquetas: bloque y negrita */
 label {
   display: block;
   margin-bottom: 5px;
   font-weight: bold;
 }
 
-/* Inputs y textarea: estilo coherente y accesible */
 input[type="text"],
 input[type="email"],
 textarea,
@@ -242,13 +296,12 @@ select {
   transition: border-color 0.3s;
 }
 
-/* Foco: indicar foco con color principal */
 input:focus, textarea:focus {
   border-color: var(--color-principal);
   outline: none;
 }
 
-/* Botón principal: forma redondeada y estilo de acción */
+/* Botones */
 .btn {
   background-color: var(--color-principal);
   color: white;
@@ -262,7 +315,6 @@ input:focus, textarea:focus {
   display: inline-block;
 }
 
-/* Hover y active para botones */
 .btn:hover {
   background-color: var(--color-secundario);
 }
@@ -271,7 +323,6 @@ input:focus, textarea:focus {
   transform: scale(0.98); 
 }
 
-/* Botón secundario con color de acento */
 .btn-secundario {
   background-color: var(--color-acento);
   color: #333;
@@ -281,12 +332,12 @@ input:focus, textarea:focus {
   background-color: #e6b800;
 }
 
-/* Pie de página: fondo oscuro y borde de acento */
+/* FOOTER y LICENCIA CC PERSONALIZADA */
 footer {
   background-color: #222;
   color: #fff;
   text-align: center;
-  padding: 40px 0;
+  padding: 40px 20px;
   margin-top: auto;
   border-top: 5px solid var(--color-acento);
 }
@@ -296,7 +347,74 @@ footer a {
   text-decoration: none;
 }
 
-/* Responsive: ajustes para pantallas estrechas */
+/* Diseño propio para la licencia */
+.licencia-cc {
+  border: 2px dashed var(--color-acento);
+  display: inline-block;
+  padding: 15px 30px;
+  margin: 20px 0;
+  border-radius: 10px;
+  background-color: rgba(255, 255, 255, 0.05);
+}
+
+.titulo-licencia {
+  font-weight: bold;
+  letter-spacing: 2px;
+  color: var(--color-acento);
+  margin-bottom: 10px;
+}
+
+.iconos-cc span {
+  font-family: monospace;
+  font-weight: bold;
+  font-size: 1.2rem;
+  border: 1px solid #fff;
+  border-radius: 50%;
+  width: 35px;
+  height: 35px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 2px;
+}
+
+.texto-legal {
+  font-size: 0.8rem;
+  margin-top: 10px;
+  opacity: 0.8;
+}
+
+/* ===== OVERRIDES PARA COMPONENTES BOOTSTRAP ===== */
+
+/* Eliminar borde que Bootstrap añade a .card */
+.card {
+  border: none;
+}
+
+/* Nav Pills: colores del proyecto */
+.nav-pills .nav-link {
+  color: var(--color-principal);
+  font-weight: bold;
+}
+.nav-pills .nav-link.active,
+.nav-pills .show > .nav-link {
+  background-color: var(--color-principal);
+  color: #fff;
+}
+
+/* Acordeón: resaltar ítem activo con verde suave */
+.accordion-button:not(.collapsed) {
+  color: var(--color-principal);
+  background-color: rgba(0, 102, 51, 0.08);
+  box-shadow: inset 0 -1px 0 var(--color-principal);
+}
+.accordion-button:focus {
+  box-shadow: 0 0 0 0.2rem rgba(0, 102, 51, 0.2);
+}
+
+/* ===== FIN OVERRIDES BOOTSTRAP ===== */
+
+/* Responsive */
 @media (max-width: 768px) {
   .header-container {
     flex-direction: column;
